@@ -1,5 +1,7 @@
 import 'package:fixit/components/custom_divider.dart';
+import 'package:fixit/src/data/app_navigation.dart';
 import 'package:fixit/src/data/app_size.dart';
+import 'package:fixit/views/forgot_password.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import '../components/auth_button.dart';
@@ -12,152 +14,151 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                alignment: Alignment.bottomCenter,
-                width: double.infinity,
-                height: PhoneSize.phoneHeight(context) * 0.18,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xFF1B3A56), Color(0xFF3B7FBC)]),
-                  color: Color(0xff1B3A56),
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.elliptical(200, 50),
-                      bottomRight: Radius.elliptical(200, 50)),
-                ),
-                child: Image.asset(
-                  "assets/images/app_logo.png",
-                  scale: 3,
-                ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              alignment: Alignment.bottomCenter,
+              width: double.infinity,
+              height: PhoneSize.phoneHeight(context) * 0.18,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color(0xFF1B3A56), Color(0xFF3B7FBC)]),
+                color: Color(0xff1B3A56),
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.elliptical(200, 50),
+                    bottomRight: Radius.elliptical(200, 50)),
               ),
-              SizedBox(
-                height: PhoneSize.phoneHeight(context) * 0.075,
+              child: Image.asset(
+                "assets/images/app_logo.png",
+                scale: 3,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Center(
-                    child: Text(
-                      'SIGN IN NOW',
-                      style: TextStyle(fontSize: 30, color: Color(0xff1B3A56)),
-                    ),
+            ),
+            SizedBox(
+              height: PhoneSize.phoneHeight(context) * 0.075,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Center(
+                  child: Text(
+                    'SIGN IN NOW',
+                    style: TextStyle(fontSize: 30, color: Color(0xff1B3A56)),
                   ),
-                  SizedBox(
-                    height: PhoneSize.phoneHeight(context) * 0.05,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const CustomTextField(
-                          isLast: false,
-                          hint: 'example@gmail.com',
-                          title: "E-Mail",
-                          obscure: false,
-                          icon: Ionicons.mail_outline,
-                        ),
-                        SizedBox(
-                          height: PhoneSize.phoneHeight(context) * 0.025,
-                        ),
-                        const CustomTextField(
-                          isLast: true,
-                          hint: '********',
-                          title: "Password",
-                          obscure: true,
-                          icon: Ionicons.lock_closed_outline,
-                        ),
-                        SizedBox(
-                          height: PhoneSize.phoneHeight(context) * 0.025,
-                        ),
-                        const Text(
-                          'Forgot Password !',
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                        ),
-                        SizedBox(
-                          height: PhoneSize.phoneHeight(context) * 0.025,
-                        ),
-                        Center(
-                          child: AuthButton(
-                            isHollow: false,
-                            onTap: () {},
-                            title: 'SIGN IN',
-                          ),
-                        ),
-                        SizedBox(
-                          height: PhoneSize.phoneHeight(context) * 0.025,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                SizedBox(
+                  height: PhoneSize.phoneHeight(context) * 0.05,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'New User ? ',
-                        style:
-                            TextStyle(fontSize: 25, color: Color(0xff8A8989)),
+                      const CustomTextField(
+                        isLast: false,
+                        hint: 'example@gmail.com',
+                        title: "E-Mail",
+                        obscure: false,
+                        icon: Ionicons.mail_outline,
                       ),
-                      Text(
-                        'SIGN UP',
-                        style:
-                            TextStyle(fontSize: 25, color: Color(0xff1B3A56)),
+                      SizedBox(
+                        height: PhoneSize.phoneHeight(context) * 0.025,
+                      ),
+                      const CustomTextField(
+                        isLast: true,
+                        hint: '********',
+                        title: "Password",
+                        obscure: true,
+                        icon: Ionicons.lock_closed_outline,
+                      ),
+                      SizedBox(
+                        height: PhoneSize.phoneHeight(context) * 0.025,
+                      ),
+                      GestureDetector(
+                          onTap: () => AppNavigation.push(
+                              context, ForgotPasswordScreen()),
+                          child: Text(
+                            'Forgot Password !',
+                            style: TextStyle(fontSize: 18, color: Colors.black),
+                          )),
+                      SizedBox(
+                        height: PhoneSize.phoneHeight(context) * 0.025,
+                      ),
+                      Center(
+                        child: AuthButton(
+                          isHollow: false,
+                          onTap: () {},
+                          title: 'SIGN IN',
+                        ),
+                      ),
+                      SizedBox(
+                        height: PhoneSize.phoneHeight(context) * 0.025,
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: PhoneSize.phoneHeight(context) * 0.025,
-                  ),
-                  const CustomDivider(),
-                  SizedBox(
-                    height: PhoneSize.phoneHeight(context) * 0.025,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Ionicons.logo_facebook,
-                        color: Colors.blue,
-                        size: 35,
-                      ),
-                      SizedBox(
-                        width: PhoneSize.phonewidth(context) * 0.025,
-                      ),
-                      const Icon(
-                        Ionicons.logo_apple,
-                        color: Colors.black,
-                        size: 35,
-                      ),
-                      SizedBox(
-                        width: PhoneSize.phonewidth(context) * 0.025,
-                      ),
-                      const Icon(
-                        Ionicons.logo_google,
-                        size: 35,
-                        color: Colors.redAccent,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: PhoneSize.phoneHeight(context) * 0.025,
-                  ),
-                  const Text(
-                    'Sign In With Another Account',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Color(0xffC1BEBE),
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'New User ? ',
+                      style: TextStyle(fontSize: 25, color: Color(0xff8A8989)),
                     ),
-                  )
-                ],
-              ),
-            ],
-          ),
+                    Text(
+                      'SIGN UP',
+                      style: TextStyle(fontSize: 25, color: Color(0xff1B3A56)),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: PhoneSize.phoneHeight(context) * 0.025,
+                ),
+                const CustomDivider(),
+                SizedBox(
+                  height: PhoneSize.phoneHeight(context) * 0.025,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Ionicons.logo_facebook,
+                      color: Colors.blue,
+                      size: 35,
+                    ),
+                    SizedBox(
+                      width: PhoneSize.phonewidth(context) * 0.025,
+                    ),
+                    const Icon(
+                      Ionicons.logo_apple,
+                      color: Colors.black,
+                      size: 35,
+                    ),
+                    SizedBox(
+                      width: PhoneSize.phonewidth(context) * 0.025,
+                    ),
+                    const Icon(
+                      Ionicons.logo_google,
+                      size: 35,
+                      color: Colors.redAccent,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: PhoneSize.phoneHeight(context) * 0.025,
+                ),
+                const Text(
+                  'Sign In With Another Account',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Color(0xffC1BEBE),
+                  ),
+                )
+              ],
+            ),
+          ],
         ),
       ),
     );
