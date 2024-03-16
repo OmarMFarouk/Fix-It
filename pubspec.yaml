@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   lottie: ^3.1.0
   ionicons: ^0.2.2
+  gradient_icon: ^2.0.9
 
 dev_dependencies:
   flutter_test:

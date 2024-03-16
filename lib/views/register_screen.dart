@@ -5,8 +5,8 @@ import 'package:ionicons/ionicons.dart';
 import '../components/auth_button.dart';
 import '../components/custom_text_field.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                 alignment: Alignment.bottomCenter,
@@ -37,19 +37,19 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: PhoneSize.phoneHeight(context) * 0.075,
+                height: PhoneSize.phoneHeight(context) * 0.025,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Center(
                     child: Text(
-                      'SIGN IN NOW',
+                      'SIGN UP NOW',
                       style: TextStyle(fontSize: 30, color: Color(0xff1B3A56)),
                     ),
                   ),
                   SizedBox(
-                    height: PhoneSize.phoneHeight(context) * 0.05,
+                    height: PhoneSize.phoneHeight(context) * 0.015,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -58,40 +58,53 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         const CustomTextField(
                           isLast: false,
+                          hint: 'John Smith',
+                          title: "Full Name",
+                          obscure: false,
+                          icon: Ionicons.person_outline,
+                        ),
+                        SizedBox(
+                          height: PhoneSize.phoneHeight(context) * 0.01,
+                        ),
+                        const CustomTextField(
+                          isLast: false,
                           hint: 'example@gmail.com',
                           title: "E-Mail",
                           obscure: false,
                           icon: Ionicons.mail_outline,
                         ),
                         SizedBox(
-                          height: PhoneSize.phoneHeight(context) * 0.025,
+                          height: PhoneSize.phoneHeight(context) * 0.01,
                         ),
                         const CustomTextField(
-                          isLast: true,
+                          isLast: false,
                           hint: '********',
                           title: "Password",
                           obscure: true,
                           icon: Ionicons.lock_closed_outline,
                         ),
                         SizedBox(
-                          height: PhoneSize.phoneHeight(context) * 0.025,
+                          height: PhoneSize.phoneHeight(context) * 0.01,
                         ),
-                        const Text(
-                          'Forgot Password !',
-                          style: TextStyle(fontSize: 18, color: Colors.black),
+                        const CustomTextField(
+                          isLast: true,
+                          hint: '********',
+                          title: "Confirm Password",
+                          obscure: true,
+                          icon: Ionicons.lock_closed_outline,
                         ),
                         SizedBox(
-                          height: PhoneSize.phoneHeight(context) * 0.025,
+                          height: PhoneSize.phoneHeight(context) * 0.01,
                         ),
                         Center(
                           child: AuthButton(
                             isHollow: false,
                             onTap: () {},
-                            title: 'SIGN IN',
+                            title: 'SIGN UP',
                           ),
                         ),
                         SizedBox(
-                          height: PhoneSize.phoneHeight(context) * 0.025,
+                          height: PhoneSize.phoneHeight(context) * 0.01,
                         ),
                       ],
                     ),
@@ -100,14 +113,14 @@ class LoginScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'New User ? ',
+                        'Already Have Account?',
                         style:
-                            TextStyle(fontSize: 25, color: Color(0xff8A8989)),
+                            TextStyle(fontSize: 15, color: Color(0xff8A8989)),
                       ),
                       Text(
-                        'SIGN UP',
+                        ' Login Here',
                         style:
-                            TextStyle(fontSize: 25, color: Color(0xff1B3A56)),
+                            TextStyle(fontSize: 15, color: Color(0xff1B3A56)),
                       ),
                     ],
                   ),
@@ -153,7 +166,10 @@ class LoginScreen extends StatelessWidget {
                       fontSize: 12,
                       color: Color(0xffC1BEBE),
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: PhoneSize.phoneHeight(context) * 0.005,
+                  ),
                 ],
               ),
             ],

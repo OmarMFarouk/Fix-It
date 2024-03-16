@@ -36,36 +36,38 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image(
-              height: PhoneSize.phoneHeight(context) * 0.25,
-              width: PhoneSize.phonewidth(context),
-              image: const AssetImage(
-                'assets/images/splash_logo.png',
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image(
+                height: PhoneSize.phoneHeight(context) * 0.25,
+                width: PhoneSize.phonewidth(context),
+                image: const AssetImage(
+                  'assets/images/splash_logo.png',
+                ),
               ),
-            ),
-            const Text(
-              'FIXIT',
-              style: TextStyle(
-                fontSize: 60,
-                color: Color(0xff183958),
+              const Text(
+                'FIXIT',
+                style: TextStyle(
+                  fontSize: 60,
+                  color: Color(0xff183958),
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              'Your solution is here',
-              style: TextStyle(
-                fontSize: 24,
-                color: Color(0xff1b3b55),
+              const SizedBox(
+                height: 20,
               ),
-            ),
-            LottieBuilder.asset(
-                'assets/animation/Animation - 1710098562431.json')
-          ],
+              const Text(
+                'Your solution is here',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Color(0xff1b3b55),
+                ),
+              ),
+              LottieBuilder.asset(
+                  'assets/animation/Animation - 1710098562431.json')
+            ],
+          ),
         ),
       ),
     );

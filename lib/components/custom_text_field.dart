@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 
 import '../src/data/app_size.dart';
 
@@ -10,7 +11,7 @@ class CustomTextField extends StatefulWidget {
       required this.isLast,
       required this.title,
       required this.obscure});
-  final String icon;
+  final IconData icon;
   final String hint;
   final bool obscure;
   final String title;
@@ -44,31 +45,26 @@ class _CustomTextFieldState extends State<CustomTextField> {
                           showPassword = !showPassword;
                         });
                       },
-                      child: Image.asset(
-                        showPassword == true
-                            ? 'assets/icons/eye_opened.png'
-                            : 'assets/icons/eye_closed.png',
-                      ),
+                      child: Icon(
+                          color: const Color(0xff1B3A56),
+                          showPassword == true
+                              ? Ionicons.eye_off
+                              : Ionicons.eye),
                     )
                   : null,
               contentPadding: const EdgeInsets.symmetric(vertical: 15),
               hintText: widget.hint,
               prefixIcon: Container(
-                width: PhoneSize.phonewidth(context) * 0.15,
-                margin: const EdgeInsets.only(
-                  top: 6,
-                  bottom: 6,
-                  right: 10,
-                ),
-                decoration: const BoxDecoration(
-                  border: Border(right: BorderSide(color: Color(0xff1B3A56))),
-                ),
-                child: Image.asset(
-                  'assets/icons/${widget.icon}.png',
-                  scale: 0.85,
-                  height: 24,
-                ),
-              ),
+                  width: PhoneSize.phonewidth(context) * 0.15,
+                  margin: const EdgeInsets.only(
+                    top: 6,
+                    bottom: 6,
+                    right: 10,
+                  ),
+                  decoration: const BoxDecoration(
+                    border: Border(right: BorderSide(color: Color(0xff1B3A56))),
+                  ),
+                  child: Icon(widget.icon)),
               hintStyle:
                   const TextStyle(color: Color(0xffC1BEBE), fontSize: 15),
               border: OutlineInputBorder(
