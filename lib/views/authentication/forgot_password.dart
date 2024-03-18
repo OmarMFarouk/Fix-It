@@ -1,13 +1,13 @@
 import 'package:fixit/src/data/app_navigation.dart';
 import 'package:fixit/src/data/app_size.dart';
-import 'package:fixit/views/success_screen.dart';
+import 'package:fixit/views/authentication/reset_password.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import '../components/auth_button.dart';
-import '../components/custom_text_field.dart';
+import '../../components/auth_button.dart';
+import '../../components/custom_text_field.dart';
 
-class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({super.key});
+class ForgotPasswordScreen extends StatelessWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +44,12 @@ class ResetPasswordScreen extends StatelessWidget {
               children: [
                 const Center(
                   child: Text(
-                    'Create A New Password',
+                    'Forgot Your Password',
                     style: TextStyle(fontSize: 25, color: Color(0xff1B3A56)),
                   ),
                 ),
                 SizedBox(
-                  height: PhoneSize.phoneHeight(context) * 0.05,
+                  height: PhoneSize.phoneHeight(context) * 0.1,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -57,21 +57,11 @@ class ResetPasswordScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const CustomTextField(
-                        isLast: false,
-                        hint: '********',
-                        title: "Password",
-                        obscure: true,
-                        icon: Ionicons.lock_closed_outline,
-                      ),
-                      SizedBox(
-                        height: PhoneSize.phoneHeight(context) * 0.025,
-                      ),
-                      const CustomTextField(
                         isLast: true,
-                        hint: '********',
-                        title: "Confirm Password",
-                        obscure: true,
-                        icon: Ionicons.lock_closed_outline,
+                        hint: 'example@gmail.com',
+                        title: "E-Mail",
+                        obscure: false,
+                        icon: Ionicons.mail_outline,
                       ),
                       SizedBox(
                         height: PhoneSize.phoneHeight(context) * 0.025,
@@ -79,9 +69,9 @@ class ResetPasswordScreen extends StatelessWidget {
                       Center(
                         child: AuthButton(
                           isHollow: false,
-                          onTap: () =>
-                              AppNavigation.push(context, SuccessScreen()),
-                          title: 'DONE',
+                          onTap: () => AppNavigation.pushR(
+                              context, ResetPasswordScreen()),
+                          title: 'SEND',
                         ),
                       ),
                       SizedBox(

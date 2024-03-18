@@ -11,7 +11,7 @@ class AppNavigation {
         context, MaterialPageRoute(builder: (context) => destination));
   }
 
-  static pop(context, Widget destination) {
+  static pop(context) {
     Navigator.pop(context);
   }
 }

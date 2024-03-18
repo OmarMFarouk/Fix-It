@@ -1,5 +1,5 @@
 import 'package:fixit/src/data/app_size.dart';
-import 'package:fixit/views/welcome_screen.dart';
+import 'package:fixit/views/authentication/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';

@@ -1,12 +1,16 @@
+import 'package:fixit/components/auth_dialog.dart';
 import 'package:fixit/components/custom_divider.dart';
+import 'package:fixit/src/data/app_navigation.dart';
 import 'package:fixit/src/data/app_size.dart';
+import 'package:fixit/views/authentication/forgot_password.dart';
+import 'package:fixit/views/authentication/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import '../components/auth_button.dart';
-import '../components/custom_text_field.dart';
+import '../../components/auth_button.dart';
+import '../../components/custom_text_field.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,19 +40,19 @@ class RegisterScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: PhoneSize.phoneHeight(context) * 0.025,
+              height: PhoneSize.phoneHeight(context) * 0.075,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Center(
                   child: Text(
-                    'SIGN UP NOW',
+                    'SIGN IN NOW',
                     style: TextStyle(fontSize: 30, color: Color(0xff1B3A56)),
                   ),
                 ),
                 SizedBox(
-                  height: PhoneSize.phoneHeight(context) * 0.0,
+                  height: PhoneSize.phoneHeight(context) * 0.05,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -57,68 +61,65 @@ class RegisterScreen extends StatelessWidget {
                     children: [
                       const CustomTextField(
                         isLast: false,
-                        hint: 'John Smith',
-                        title: "Full Name",
-                        obscure: false,
-                        icon: Ionicons.person_outline,
-                      ),
-                      SizedBox(
-                        height: PhoneSize.phoneHeight(context) * 0.01,
-                      ),
-                      const CustomTextField(
-                        isLast: false,
                         hint: 'example@gmail.com',
                         title: "E-Mail",
                         obscure: false,
                         icon: Ionicons.mail_outline,
                       ),
                       SizedBox(
-                        height: PhoneSize.phoneHeight(context) * 0.01,
+                        height: PhoneSize.phoneHeight(context) * 0.025,
                       ),
                       const CustomTextField(
-                        isLast: false,
+                        isLast: true,
                         hint: '********',
                         title: "Password",
                         obscure: true,
                         icon: Ionicons.lock_closed_outline,
                       ),
                       SizedBox(
-                        height: PhoneSize.phoneHeight(context) * 0.01,
+                        height: PhoneSize.phoneHeight(context) * 0.025,
                       ),
-                      const CustomTextField(
-                        isLast: true,
-                        hint: '********',
-                        title: "Confirm Password",
-                        obscure: true,
-                        icon: Ionicons.lock_closed_outline,
-                      ),
+                      GestureDetector(
+                          onTap: () => AppNavigation.push(
+                              context, const ForgotPasswordScreen()),
+                          child: const Text(
+                            'Forgot Password !',
+                            style: TextStyle(fontSize: 18, color: Colors.black),
+                          )),
                       SizedBox(
-                        height: PhoneSize.phoneHeight(context) * 0.01,
+                        height: PhoneSize.phoneHeight(context) * 0.025,
                       ),
                       Center(
                         child: AuthButton(
                           isHollow: false,
-                          onTap: () {},
-                          title: 'SIGN UP',
+                          onTap: () => showDialog(
+                              context: context,
+                              builder: (context) => const AuthDialog()),
+                          title: 'SIGN IN',
                         ),
                       ),
                       SizedBox(
-                        height: PhoneSize.phoneHeight(context) * 0.01,
+                        height: PhoneSize.phoneHeight(context) * 0.025,
                       ),
                     ],
                   ),
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Already Have Account?',
-                      style: TextStyle(fontSize: 15, color: Color(0xff8A8989)),
+                    const Text(
+                      'New User ? ',
+                      style: TextStyle(fontSize: 25, color: Color(0xff8A8989)),
                     ),
-                    Text(
-                      ' Login Here',
-                      style: TextStyle(fontSize: 15, color: Color(0xff1B3A56)),
-                    ),
+                    TextButton(
+                      onPressed: () =>
+                          AppNavigation.push(context, const RegisterScreen()),
+                      child: const Text(
+                        'SIGN UP',
+                        style:
+                            TextStyle(fontSize: 25, color: Color(0xff1B3A56)),
+                      ),
+                    )
                   ],
                 ),
                 SizedBox(
@@ -163,10 +164,7 @@ class RegisterScreen extends StatelessWidget {
                     fontSize: 12,
                     color: Color(0xffC1BEBE),
                   ),
-                ),
-                SizedBox(
-                  height: PhoneSize.phoneHeight(context) * 0.005,
-                ),
+                )
               ],
             ),
           ],

@@ -1,11 +1,11 @@
 import 'package:fixit/src/data/app_navigation.dart';
 import 'package:fixit/src/data/app_size.dart';
-import 'package:fixit/views/login_screen.dart';
-import 'package:fixit/views/register_screen.dart';
+import 'package:fixit/views/authentication/login_screen.dart';
+import 'package:fixit/views/authentication/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import '../components/auth_button.dart';
-import '../components/custom_divider.dart';
+import '../../components/auth_button.dart';
+import '../../components/custom_divider.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
