@@ -1,6 +1,6 @@
 import 'package:fixit/src/data/app_navigation.dart';
 import 'package:fixit/src/data/app_size.dart';
-import 'package:fixit/views/authentication/reset_password.dart';
+import 'package:fixit/views/authentication/otp_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import '../../components/auth_button.dart';
@@ -69,8 +69,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                       Center(
                         child: AuthButton(
                           isHollow: false,
-                          onTap: () => AppNavigation.pushR(
-                              context, ResetPasswordScreen()),
+                          onTap: () =>
+                              AppNavigation.pushR(context, const OtpScreen()),
                           title: 'SEND',
                         ),
                       ),

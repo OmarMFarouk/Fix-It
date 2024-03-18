@@ -12,9 +12,14 @@ class AuthDialog extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.symmetric(
             horizontal: PhoneSize.phonewidth(context) * 0.05,
-            vertical: PhoneSize.phoneHeight(context) * 0.3),
+            vertical: PhoneSize.phoneHeight(context) * 0.31),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(55), color: Colors.white),
+            border: Border.all(
+                color: const Color(0xff1B3A56),
+                width: 2.5,
+                style: BorderStyle.solid),
+            borderRadius: BorderRadius.circular(12),
+            color: Colors.white),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

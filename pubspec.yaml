@@ -38,6 +38,7 @@ dependencies:
   lottie: ^3.1.0
   ionicons: ^0.2.2
   gradient_icon: ^2.0.9
+  pin_code_fields: ^8.0.1
 
 dev_dependencies:
   flutter_test:
